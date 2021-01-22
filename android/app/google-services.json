@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "553874354647",
+    "firebase_url": "https://public-police-hackathon-app-default-rtdb.firebaseio.com",
+    "project_id": "public-police-hackathon-app",
+    "storage_bucket": "public-police-hackathon-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:553874354647:android:a3edefc6febe21f3bd1b92",
+        "android_client_info": {
+          "package_name": "com.baaj"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "553874354647-qs3ooatg62b8sau8k3s26cb4mtgsoo7s.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC4C_BYwSJ2NWx3vwkns4bkbcgxyiRPQpo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "553874354647-qs3ooatg62b8sau8k3s26cb4mtgsoo7s.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "553874354647-a17ia9qg3oqrolhok17910v9fkb2a70u.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "google-sign-in"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

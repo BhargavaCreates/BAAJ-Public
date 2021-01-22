@@ -32,7 +32,6 @@ const HomeSN = () => {
         component={Home}
         options={{
           headerTitle: <Icon name="home" size={22} />,
-          headerRight: 'Reports',
         }}
       />
     </HomeStack.Navigator>
