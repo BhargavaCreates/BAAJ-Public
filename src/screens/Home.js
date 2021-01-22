@@ -9,6 +9,11 @@ import { ScrollView } from 'react-native-gesture-handler'
 import { TextInput } from '../components/TextInput'
 import { Button } from 'react-native-paper'
 import { logoutUser } from '../api/auth-api'
+import firebase from 'firebase'
+
+import firestore from '@react-native-firebase/firestore'
+
+import { Picker } from '@react-native-picker/picker'
 
 export default function Home() {
   const [region, setRegion] = useState({
@@ -25,12 +30,39 @@ export default function Home() {
 
   const [message, setMessage] = useState('')
 
-  const handleReportClick = (data) => {
+  // Set an initializing state whilst Firebase connects
+  const [initializing, setInitializing] = useState(true)
+  const [user, setUser] = useState()
+  const [emergencyCategory, setEmergencyCategory] = useState('police')
+
+  // Handle user state changes
+  function onAuthStateChanged(user) {
+    setUser(user)
+    console.log(user)
+    if (initializing) setInitializing(false)
+  }
+
+  const sendEmergencyReport = (data) => {
+    firestore()
+      .collection('reports')
+      .add(data)
+      .then(() => {
+        alert(
+          `Your Report has been sent! ${emergencyCategory.toLocaleUpperCase()} helplines will soon revert back to you.`
+        )
+      })
+  }
+
+  const handleReportClick = async (data) => {
     const dataObj = {
+      userId: user.providerData[0].uid,
       coordinates: markerCoords,
-      messgae: message,
+      emergencyCategory: emergencyCategory,
+      isLive: true, // would only retrieve reports with isLive: true
+      createdAt: Date.now(), // and are reported within an hour for Police Dashboard
     }
-    console.log(dataObj)
+
+    sendEmergencyReport(dataObj)
   }
 
   React.useEffect(() => {
@@ -54,6 +86,8 @@ export default function Home() {
         const { code, message } = error
         console.warn(code, message)
       })
+    const user = firebase.auth().currentUser
+    setUser(user)
   }, [])
   return (
     // <Backgroud>
@@ -85,8 +119,26 @@ export default function Home() {
           <Marker coordinate={markerCoords} draggable />
         </MapView>
       </View>
+      <View style={{ marginHorizontal: 10 }}>
+        <Picker
+          selectedValue={emergencyCategory}
+          style={{ height: 50, width: 400 }}
+          onValueChange={(itemValue, itemIndex) =>
+            setEmergencyCategory(itemValue)
+          }
+        >
+          <Picker.Item label="Police" value="police" />
+          <Picker.Item label="Fire" value="fire" />
+          <Picker.Item label="Women Helpline" value="women" />
+        </Picker>
+      </View>
       <View>
-        <Button mode="contained" style={{ margin: 10 }} color="red">
+        <Button
+          mode="contained"
+          style={{ margin: 10 }}
+          color="red"
+          onPress={handleReportClick}
+        >
           Report
         </Button>
         <Button
