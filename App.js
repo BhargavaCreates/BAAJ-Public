@@ -17,6 +17,8 @@ import {
 import { FIREBASE_CONFIG } from './src/core/config'
 import Icon from 'react-native-vector-icons/FontAwesome'
 
+import PoliceHome from './src/screens/PoliceHome'
+
 const Stack = createStackNavigator()
 if (!firebase.apps.length) {
   firebase.initializeApp(FIREBASE_CONFIG)
