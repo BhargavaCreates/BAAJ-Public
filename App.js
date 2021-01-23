@@ -31,7 +31,7 @@ const HomeSN = () => {
     <HomeStack.Navigator>
       <HomeStack.Screen
         name="Home"
-        component={Home}
+        component={PoliceHome}
         options={{
           headerTitle: <Icon name="home" size={22} />,
         }}
