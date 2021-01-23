@@ -2,6 +2,7 @@ import React from 'react'
 import { Provider } from 'react-native-paper'
 import { NavigationContainer } from '@react-navigation/native'
 import { createStackNavigator } from '@react-navigation/stack'
+import { createDrawerNavigator } from '@react-navigation/drawer'
 import firebase from 'firebase/app'
 import 'firebase/auth'
 import { theme } from './src/core/theme'
@@ -24,21 +25,38 @@ if (!firebase.apps.length) {
   firebase.initializeApp(FIREBASE_CONFIG)
 }
 
-const HomeStack = createStackNavigator()
+const Drawer = createDrawerNavigator()
 
-const HomeSN = () => {
+function MyDrawer() {
   return (
-    <HomeStack.Navigator>
-      <HomeStack.Screen
-        name="Home"
+    <Drawer.Navigator>
+      <Drawer.Screen
+        //name="Home"
         component={PoliceHome}
+        name="Home"
         options={{
           headerTitle: <Icon name="home" size={22} />,
         }}
       />
-    </HomeStack.Navigator>
+    </Drawer.Navigator>
   )
 }
+
+// const HomeStack = createStackNavigator()
+
+// const HomeSN = () => {
+//   return (
+//     <HomeStack.Navigator>
+//       <HomeStack.Screen
+//         name="Home"
+//         component={PoliceHome}
+//         options={{
+//           headerTitle: <Icon name="home" size={22} />,
+//         }}
+//       />
+//     </HomeStack.Navigator>
+//   )
+// }
 
 const App = () => {
   return (
@@ -57,7 +75,7 @@ const App = () => {
           <Stack.Screen name="StartScreen" component={StartScreen} />
           <Stack.Screen name="LoginScreen" component={LoginScreen} />
           <Stack.Screen name="RegisterScreen" component={RegisterScreen} />
-          <Stack.Screen name="Home" component={HomeSN} />
+          <Stack.Screen name="Home" component={MyDrawer} />
           <Stack.Screen
             name="ForgotPasswordScreen"
             component={ForgotPasswordScreen}

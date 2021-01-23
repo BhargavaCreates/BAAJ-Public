@@ -8,7 +8,7 @@ import Paragraph from '../components/Paragraph'
 const StartScreen = ({ navigation }) => (
   <Background>
     <Logo />
-    <Header>BAAJ Public</Header>
+    <Header>BAAJ</Header>
     <Paragraph>empowering Public and Police</Paragraph>
     <Button mode="contained" onPress={() => navigation.navigate('LoginScreen')}>
       Login
