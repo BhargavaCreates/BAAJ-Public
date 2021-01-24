@@ -74,6 +74,7 @@ const LoginScreen = ({ navigation }) => {
       <Button loading={loading} mode="contained" onPress={onLoginPressed}>
         Login
       </Button>
+
       <View style={styles.row}>
         <Text>Don’t have an account? </Text>
         <TouchableOpacity onPress={() => navigation.replace('RegisterScreen')}>

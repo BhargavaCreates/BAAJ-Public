@@ -20,6 +20,13 @@ import Icon from 'react-native-vector-icons/FontAwesome'
 
 import PoliceHome from './src/screens/PoliceHome'
 
+import { GoogleSignin } from '@react-native-community/google-signin'
+
+GoogleSignin.configure({
+  webClientId:
+    '553874354647-qs3ooatg62b8sau8k3s26cb4mtgsoo7s.apps.googleusercontent.com',
+})
+
 const Stack = createStackNavigator()
 if (!firebase.apps.length) {
   firebase.initializeApp(FIREBASE_CONFIG)
