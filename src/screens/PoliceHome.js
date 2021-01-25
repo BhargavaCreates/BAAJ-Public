@@ -88,8 +88,9 @@ export default function PoliceHome() {
                     handleOpenInMap(report['coordinates'])
                   }}
                 >
-                  Open in Google Map
+                  Google Map
                 </Button>
+                <Button mode="contained">Evidences</Button>
               </Card.Actions>
             </Card>
           )
@@ -119,8 +120,9 @@ export default function PoliceHome() {
                     handleOpenInMap(report['coordinates'])
                   }}
                 >
-                  Open in Google Map
+                  Google Map
                 </Button>
+                <Button mode="contained">Evidences</Button>
               </Card.Actions>
             </Card>
           )
@@ -146,8 +148,9 @@ export default function PoliceHome() {
                     handleOpenInMap(report['coordinates'])
                   }}
                 >
-                  Open in Google Map
+                  Google Map
                 </Button>
+                <Button mode="contained">Evidences</Button>
               </Card.Actions>
             </Card>
           )
@@ -172,8 +175,9 @@ export default function PoliceHome() {
                     handleOpenInMap(report['coordinates'])
                   }}
                 >
-                  Open in Google Map
+                  Google Map
                 </Button>
+                <Button mode="contained">Evidences</Button>
               </Card.Actions>
             </Card>
           )
