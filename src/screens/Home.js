@@ -142,6 +142,14 @@ export default function Home() {
           Report
         </Button>
         <Button
+          mode="contained"
+          style={{ marginHorizontal: 10 }}
+          color="blue"
+          onPress={handleReportClick}
+        >
+          Submit Evidence
+        </Button>
+        <Button
           mode="outlined"
           style={{ marginHorizontal: 10 }}
           onPress={logoutUser}
