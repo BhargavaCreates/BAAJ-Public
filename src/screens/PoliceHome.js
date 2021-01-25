@@ -74,7 +74,7 @@ export default function PoliceHome() {
   const RenderPolice = () => {
     return (
       <List.Accordion
-        title={<Title>Police(5)</Title>}
+        title={<Title>Police({policeReports.length})</Title>}
         left={(props) => <List.Icon {...props} icon="plus" />}
       >
         {policeReports.map((report) => {
@@ -94,7 +94,6 @@ export default function PoliceHome() {
             </Card>
           )
         })}
-        {/* <List.Item title="Second item" /> */}
       </List.Accordion>
     )
   }
@@ -106,11 +105,26 @@ export default function PoliceHome() {
   const RenderWomen = () => {
     return (
       <List.Accordion
-        title={<Title>Women(2)</Title>}
-        left={(props) => <List.Icon {...props} icon="alert" />}
+        title={<Title>Women({womenReports.length})</Title>}
+        left={(props) => <List.Icon {...props} icon="plus" />}
       >
-        <List.Item title="First item" />
-        <List.Item title="Second item" />
+        {womenReports.map((report) => {
+          return (
+            <Card>
+              <Card.Title title={report.userId} />
+              <Card.Actions>
+                <Button
+                  mode="contained"
+                  onPress={() => {
+                    handleOpenInMap(report['coordinates'])
+                  }}
+                >
+                  Open in Google Map
+                </Button>
+              </Card.Actions>
+            </Card>
+          )
+        })}
       </List.Accordion>
     )
   }
@@ -118,22 +132,52 @@ export default function PoliceHome() {
   const RenderFire = () => {
     return (
       <List.Accordion
-        title={<Title>Fire(0)</Title>}
-        left={(props) => <List.Icon {...props} icon="fire" />}
+        title={<Title>Fire({fireReports.length})</Title>}
+        left={(props) => <List.Icon {...props} icon="plus" />}
       >
-        <List.Item title="First item" />
-        <List.Item title="Second item" />
+        {fireReports.map((report) => {
+          return (
+            <Card>
+              <Card.Title title={report.userId} />
+              <Card.Actions>
+                <Button
+                  mode="contained"
+                  onPress={() => {
+                    handleOpenInMap(report['coordinates'])
+                  }}
+                >
+                  Open in Google Map
+                </Button>
+              </Card.Actions>
+            </Card>
+          )
+        })}
       </List.Accordion>
     )
   }
   const RenderAmbulance = () => {
     return (
       <List.Accordion
-        title={<Title>Ambulance(1)</Title>}
-        left={(props) => <List.Icon {...props} icon="ambulance" />}
+        title={<Title>Ambulance({ambulanceReports.length})</Title>}
+        left={(props) => <List.Icon {...props} icon="plus" />}
       >
-        <List.Item title="First item" />
-        <List.Item title="Second item" />
+        {ambulanceReports.map((report) => {
+          return (
+            <Card>
+              <Card.Title title={report.userId} />
+              <Card.Actions>
+                <Button
+                  mode="contained"
+                  onPress={() => {
+                    handleOpenInMap(report['coordinates'])
+                  }}
+                >
+                  Open in Google Map
+                </Button>
+              </Card.Actions>
+            </Card>
+          )
+        })}
       </List.Accordion>
     )
   }
