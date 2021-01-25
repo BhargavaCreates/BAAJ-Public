@@ -5,6 +5,7 @@ import firebase from 'firebase'
 
 import firestore from '@react-native-firebase/firestore'
 import { ScrollView } from 'react-native-gesture-handler'
+import openMap from 'react-native-open-maps'
 
 export default function PoliceHome() {
   const [expanded, setExpanded] = React.useState(true)
@@ -65,8 +66,9 @@ export default function PoliceHome() {
       })
   }
 
-  const handleOpenInMap = (report) => {
-    console.log(report)
+  const handleOpenInMap = (coords) => {
+    console.log({ ...coords, provider: 'google' })
+    openMap({ ...coords, provider: 'google' })
   }
 
   const RenderPolice = () => {
